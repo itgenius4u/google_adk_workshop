@@ -1,4 +1,5 @@
-from google.adk.agents.llm_agent import Agent, SequentialAgent
+from google.adk.agents.llm_agent import Agent
+from google.adk.agents.sequential_agent import SequentialAgent
 
 code_writer_agent = Agent(
     model='gemini-2.0-flash',
