@@ -1,4 +1,4 @@
-<img width="1462" height="210" alt="image" src="https://github.com/user-attachments/assets/7e4cbc3b-acec-42e8-8ab4-6f1918386996" />### 개발 환경 설정 및 기타
+### 개발 환경 설정 및 기타
 
     - 파이썬 설치 버전
       버전: python 3.11.9
