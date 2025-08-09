@@ -16,3 +16,7 @@
 
     - Gemini API키 생성하기
       aistudio.google.com 접속후, API Key 생성
+
+    - adk 활용
+      adk create greeting_agent 프로젝트 생성
+      adk web agents 실행
