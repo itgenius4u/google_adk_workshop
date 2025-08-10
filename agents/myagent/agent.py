@@ -57,7 +57,7 @@ help_agent = Agent(
     description='Agent to answer questions about the time and weather in a city.',
     instruction='I can answer your questions about the time and weather in a city',
     tools=[get_weather],
-    output_key="mydata"
+    output_key="mydata",
 )
 
 root_agent = help_agent
