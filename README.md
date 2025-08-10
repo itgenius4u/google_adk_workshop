@@ -20,3 +20,4 @@
     - adk 활용
       adk create greeting_agent 프로젝트 생성
       adk web agents 실행
+      adk run agents\myagent 실행
