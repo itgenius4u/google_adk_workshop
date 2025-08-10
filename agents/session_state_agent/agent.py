@@ -2,6 +2,15 @@ from google.adk.agents.llm_agent import Agent
 from google.adk.tools.tool_context import ToolContext
 
 def set_preference(category: str, value: str, tool_context: ToolContext) -> dict:
+    """ user:preferences의 값을 키와 값으로 설정해준다.
+    
+        Args:
+            category: 종류를 나타낸다.
+            value: 값을 나태낸다.
+
+        Returns:
+            값을 dict 타입으로 출력한다.
+    """
     preferences = tool_context.state.get("user:preferences", {})
     preferences[category] = value
     tool_context.state["user:preferences"] = preferences
