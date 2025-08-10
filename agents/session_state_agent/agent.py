@@ -2,7 +2,7 @@ from google.adk.agents.llm_agent import Agent
 from google.adk.tools.tool_context import ToolContext
 
 def set_preference(category: str, value: str, tool_context: ToolContext) -> dict:
-    """ user:preferences의 값을 키와 값으로 설정해준다.
+    """ 사용자의 값을 키와 값으로 설정해준다.
     
         Args:
             category: 종류를 나타낸다.
