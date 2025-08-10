@@ -1,5 +1,5 @@
 from google.adk.agents.llm_agent import Agent
-from google.adk.agents import SequentialAgent, ParallelAgent
+from google.adk.agents import SequentialAgent, ParallelAgent, LoopAgent
 
 def get_weather(city: str) -> dict:
     """Retrieves the current weather report for a specified city.
@@ -43,7 +43,17 @@ parallel_agent = ParallelAgent(
     name="information_gather",
     sub_agents=[fetch_weather, fetch_news]
 )
-root_agent = parallel_agent
+
+
+process_step = Agent(name="process_item", model="gemini-2.0-flash")
+check_condition = Agent(name="check_complete", model="gemini-2.0-flash")
+
+loop_agent = LoopAgent(
+    name="processing_loop",
+    sub_agents=[process_step, check_condition],
+    max_iterations=5  
+)
+root_agent = loop_agent
 
 
 help_agent = Agent(
