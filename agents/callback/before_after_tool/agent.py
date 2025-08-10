@@ -68,7 +68,6 @@ def before_tool_callback(
     print("[Callback] Proceeding with normal tool call")
     return None
 
-
 # --- Define After Tool Callback ---
 def after_tool_callback(
     tool: BaseTool, args: Dict[str, Any], tool_context: ToolContext, tool_response: Dict
