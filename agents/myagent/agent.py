@@ -1,4 +1,5 @@
 from google.adk.agents.llm_agent import Agent
+from google.adk.agents import SequentialAgent
 
 def get_weather(city: str) -> dict:
     """Retrieves the current weather report for a specified city.
@@ -22,13 +23,14 @@ def get_weather(city: str) -> dict:
             "status": "error",
             "error_message": f"Weather information for '{city}' is not available.",
         }
-# from google.adk.agents import SequentialAgent
 
-step1 = Agent(name="data_collector", model='gemini-2.0-flash')
-step2 = Agent(name="data_analyzer", model='gemini-2.0-flash')
+step1 = Agent(name="data_collector", model='gemini-2.0-flash',
+              instruction="You're a data collector.")
+step2 = Agent(name="data_analyzer", model='gemini-2.0-flash',
+              instruction="You're a data analyzer.")
 
-pipeline = SequentialAgent(
-    name="analysis_pipeline", sub_agents=[step1, step2]
+pipeline = SequentialAgent(name="analysis_pipeline", 
+    sub_agents=[step1, step2]
 )
 root_agent = pipeline
 
