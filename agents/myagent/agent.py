@@ -44,7 +44,6 @@ parallel_agent = ParallelAgent(
     sub_agents=[fetch_weather, fetch_news]
 )
 
-
 process_step = Agent(name="process_item", model="gemini-2.0-flash")
 check_condition = Agent(name="check_complete", model="gemini-2.0-flash")
 
