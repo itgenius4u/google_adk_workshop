@@ -29,10 +29,8 @@ step1 = Agent(name="data_collector", model='gemini-2.0-flash',
 step2 = Agent(name="data_analyzer", model='gemini-2.0-flash',
               instruction="You're a data analyzer.")
 
-pipeline = SequentialAgent(name="analysis_pipeline", 
-    sub_agents=[step1, step2]
+pipeline = SequentialAgent(name="analysis_pipeline",sub_agents=[step1, step2],
 )
-# root_agent = pipeline
 
 fetch_weather = Agent(name="weather_fecher", model='gemini-2.0-flash',
               instruction="You're a weather expert.")
@@ -52,13 +50,16 @@ loop_agent = LoopAgent(
     sub_agents=[process_step, check_condition],
     max_iterations=5  
 )
-root_agent = loop_agent
-
 
 help_agent = Agent(
     model='gemini-2.0-flash',
     name='help_agent',
     description='Agent to answer questions about the time and weather in a city.',
     instruction='I can answer your questions about the time and weather in a city',
-    # tools=[get_weather],
+    # tools=[get_weather]
 )
+
+root_agent = help_agent
+
+
+     
